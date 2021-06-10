@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.lis001.invest.dao.ProductsDAO">
+	<select id="getAllProducts" resultType="com.lis001.invest.dto.Product">
+		SELECT * FROM product
+	</select>
+</mapper>

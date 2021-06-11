@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.lis001.invest.dao.ProductsDAO">
+
+	<select id="getAllProducts" resultType="com.lis001.invest.dto.Product">
+		SELECT 
+			productId, title, totalInvestingAmount, currentInvestingAmount, 
+			numberInvestors, status, finishedAt
+		FROM product
+		WHERE finishedAt > NOW() AND NOW() > startedAt 
+	</select>
+
+	<select id="getProduct" parameterType="int" resultType="com.lis001.invest.dto.Product">
+		SELECT 
+			productId, title, totalInvestingAmount, currentInvestingAmount, 
+			numberInvestors, status, finishedAt
+		FROM product
+		WHERE productId = #{id}
+	</select>
+
+	<update id="investProduct">
+		UPDATE
+			product
+		SET
+			currentInvestingAmount = currentInvestingAmount + #{invest.investAmount}, 
+			numberInvestors = numberInvestors + 1
+		WHERE 
+			productId = #{productId} 
+			AND totalInvestingAmount > currentInvestingAmount + #{invest.investAmount}	
+	</update>
+</mapper>

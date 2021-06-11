@@ -3,6 +3,8 @@ package com.lis001.invest.dto;
 import java.time.LocalDateTime;
 
 public class Invest {
+	Integer investId;
+	Integer userId;
 	Integer productId;
 	String title;
 	Integer totalInvestingAmount;
@@ -14,6 +16,23 @@ public class Invest {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Integer getInvestId() {
+		return investId;
+	}
+
+	public void setInvestId(Integer investId) {
+		this.investId = investId;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
 	public Integer getProductId() {
 		return productId;
 	}
@@ -46,8 +65,9 @@ public class Invest {
 	}
 	@Override
 	public String toString() {
-		return "invest [productId=" + productId + ", title=" + title + ", totalInvestingAmount=" + totalInvestingAmount
-				+ ", investAmount=" + investAmount + ", attendedAt=" + attendedAt + "]";
+		return "Invest [investId=" + investId + ", userId=" + userId + ", productId=" + productId + ", title=" + title
+				+ ", totalInvestingAmount=" + totalInvestingAmount + ", investAmount=" + investAmount + ", attendedAt="
+				+ attendedAt + "]";
 	}
 
 	

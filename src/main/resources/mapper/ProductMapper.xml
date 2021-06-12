@@ -20,6 +20,15 @@
 		WHERE productId = #{id}
 	</select>
 
+	<select id="getInvestingAmountForUpdate" parameterType="int" resultType="int">
+		SELECT 
+			currentInvestingAmount
+		FROM product
+		WHERE
+			productId = #{id}
+		FOR UPDATE
+	</select>
+
 	<update id="investProduct">
 		UPDATE
 			product

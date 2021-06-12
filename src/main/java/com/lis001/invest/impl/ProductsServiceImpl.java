@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lis001.invest.dao.ProductsDAO;
-import com.lis001.invest.dto.Invest;
-import com.lis001.invest.dto.InvestRequest;
 import com.lis001.invest.dto.Product;
 import com.lis001.invest.service.ProductsService;
 

@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lis001.invest.dao.InvestsDAO;
 import com.lis001.invest.dao.ProductsDAO;
 import com.lis001.invest.dto.Invest;
-import com.lis001.invest.dto.InvestRequest;
 import com.lis001.invest.dto.Product;
 import com.lis001.invest.service.InvestsService;
 
@@ -32,11 +32,15 @@ public class InvestsServiceImpl implements InvestsService {
 	}
 	
 	@Override
+	@Transactional
 	public Invest insertInvest(Invest invest) {
 		Invest updatedInvest = new Invest();
 		
-		if (daoProducts.investProduct(invest.getProductId(), invest) == 1) {
-			
+		daoProducts.getInvestingAmountForUpdate(invest.getProductId());
+		Integer ret = daoProducts.investProduct(invest.getProductId(), invest); 
+
+		if (ret == 1) {	
+			//	invest 성공
 			Product product = daoProducts.getProduct(invest.getProductId());
 			
 			updatedInvest.setProductId(invest.getProductId());
@@ -48,13 +52,12 @@ public class InvestsServiceImpl implements InvestsService {
 			//	insertInvest
 			dao.insertInvest(invest);
 		} else {
+			//	invest 실패
 			updatedInvest.setInvestAmount(0);
 
 			//	error case : sold out or shortage available investAmount
-			
 		}
-		
-		
+
 		return updatedInvest;
 	}
 }

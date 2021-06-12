@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.lis001.invest.dto.Invest;
-import com.lis001.invest.dto.InvestRequest;
 
 @Repository
 public interface InvestsDAO {

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lis001.invest.dto.Invest;
-import com.lis001.invest.dto.InvestRequest;
 import com.lis001.invest.service.InvestsService;
 
 @RestController

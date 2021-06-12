@@ -2,6 +2,8 @@ package com.lis001.invest.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +31,7 @@ public class InvestsController {
 	}
 	
 	@PostMapping(path = "/invests")
-	public Invest insertInvest(@RequestBody Invest investRequest) {
+	public Invest insertInvest(final @RequestBody @Valid Invest investRequest) {
 		
 		//	set temporary userid for test
 		//investRequest.setUserId(1);

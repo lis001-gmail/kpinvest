@@ -2,12 +2,16 @@ package com.lis001.invest.dto;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotNull;
+
 public class Invest {
 	Integer investId;
 	Integer userId;
+	@NotNull
 	Integer productId;
 	String title;
 	Integer totalInvestingAmount;
+	@NotNull
 	Integer investAmount;
 	LocalDateTime attendedAt;
 	

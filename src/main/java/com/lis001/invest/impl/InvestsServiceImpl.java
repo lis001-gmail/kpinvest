@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lis001.invest.common.enums.ExceptionEnum;
+import com.lis001.invest.common.response.ApiException;
 import com.lis001.invest.dao.InvestsDAO;
 import com.lis001.invest.dao.ProductsDAO;
 import com.lis001.invest.dto.Invest;
@@ -56,6 +58,8 @@ public class InvestsServiceImpl implements InvestsService {
 			updatedInvest.setInvestAmount(0);
 
 			//	error case : sold out or shortage available investAmount
+			throw new ApiException(ExceptionEnum.SOLDOUT);
+			//throw new ApiException(ExceptionEnum.SECURITY_01);
 		}
 
 		return updatedInvest;

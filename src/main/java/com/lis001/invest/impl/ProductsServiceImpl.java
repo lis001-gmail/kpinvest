@@ -19,31 +19,4 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<Product> getAllProducts() {
 		return dao.getAllProducts();
 	}
-	
-	@Override
-	public Product getProduct(Integer id) {
-		return dao.getProduct(id);
-	}
-
-	/*
-	@Override
-	public Invest investProduct(Integer productId, InvestRequest invest) {
-		Invest updatedInvest = new Invest();
-		
-		if (dao.investProduct(productId, invest) == 1) {
-			
-			Product product = getProduct(productId);
-			
-			updatedInvest.setProductId(productId);
-			updatedInvest.setInvestAmount(invest.getInvestAmount());
-			updatedInvest.setTitle(product.getTitle());
-			updatedInvest.setTotalInvestingAmount(product.getTotalInvestingAmount());
-			updatedInvest.setUserId(invest.getUserId());
-		} else {
-			updatedInvest.setInvestAmount(0);
-		}
-		
-		return updatedInvest;
-	}
-	*/
 }

@@ -10,7 +10,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new MyInterceptor())
-                .addPathPatterns("/*") // 해당 경로에 접근하기 전에 인터셉터가 가로챈다.
-                ;//.excludePathPatterns("/boards"); // 해당 경로는 인터셉터가 가로채지 않는다.
+                .addPathPatterns("/*");                
     }
 }

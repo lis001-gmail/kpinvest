@@ -22,11 +22,6 @@ public class InvestsServiceImpl implements InvestsService {
 
 	@Autowired
 	private ProductsDAO daoProducts;
-
-	@Override
-	public List<Invest> getAllInvests() {
-		return dao.getAllInvests();
-	}
 	
 	@Override
 	public List<Invest> getInvests(Integer userId) {

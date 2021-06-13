@@ -5,7 +5,6 @@ import java.util.List;
 import com.lis001.invest.dto.Invest;
 
 public interface InvestsService {
-	List<Invest> getAllInvests();
 	List<Invest> getInvests(Integer userId);
 	Invest insertInvest(Invest invest);
 }

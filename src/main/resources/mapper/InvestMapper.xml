@@ -2,28 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lis001.invest.dao.InvestsDAO">
-<!-- 
-	Integer investId;
-	Integer userId;
-	Integer productId;
-	String title;
-	Integer totalInvestingAmount;
-	Integer investAmount;
-	LocalDateTime attendedAt;
--->	
-	
-	<select id="getAllInvests" resultType="com.lis001.invest.dto.Invest">
-		SELECT 
-			i.investId, i.userId, i.productId, p.title, p.totalInvestingAmount, i.investAmount, i.attendedAt
-		FROM invest AS i
-		INNER JOIN 
-			product AS p
-			ON p.productId = i.productId
-	</select>
-
 	<select id="getInvests" parameterType="int" resultType="com.lis001.invest.dto.Invest">
 		SELECT 
-			i.investId, i.userId, i.productId, p.title, p.totalInvestingAmount, i.investingAmount, i.attendedAt
+			i.investId, i.userId, i.productId, p.title, p.totalInvestingAmount, i.investAmount, i.attendedAt
 		FROM invest AS i
 		INNER JOIN 
 			product AS p

@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,15 +24,10 @@ public class InvestsController {
 	private InvestsService service;
 	
 	@GetMapping(path = "/invests")
-	public List<Invest> getAllInvests() {
-		return service.getAllInvests();
+	public List<Invest> getInvests(@RequestAttribute Integer userId) {
+		return service.getInvests(userId);
 	}
-	
-	@GetMapping(path = "/invests/{id}")
-	public List<Invest> getProduct(@PathVariable Integer id) {
-		return service.getInvests(id);
-	}
-	
+		
 	@PostMapping(path = "/invests")
 	public Invest insertInvest(final @RequestBody @Valid Invest investRequest, @RequestAttribute Integer userId) {
         logger.debug("[MYTEST] post invests : userId - " + userId);

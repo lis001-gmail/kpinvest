@@ -21,14 +21,19 @@ public class MyInterceptor implements HandlerInterceptor {
             Object handler
     ) throws Exception {
     	
-    	String xUserId = request.getHeader("X-USER_ID");
-    	if (xUserId == null)
+    	String sUserId = request.getHeader("X-USER_ID");
+    	Integer userId = 0;
+    	if (sUserId == null)
     	{
 			throw new ApiException(ExceptionEnum.SECURITY_01);
     	}
-    	Integer userId = xUserId.hashCode();
-    	if (userId < 0)	userId *= -1;
-        logger.debug("[MYTEST] preHandle " + xUserId.toString() + "userId " + userId);
+    	try {
+    		userId = Integer.parseInt(sUserId);
+    	} catch(Exception e) {
+			throw new ApiException(ExceptionEnum.SECURITY_01);
+    	}
+
+        logger.debug("[MYTEST] preHandle " + sUserId.toString() + "userId " + userId);
         
         request.setAttribute("userId", userId);
         return true;

@@ -12,6 +12,7 @@ import com.lis001.invest.service.ProductsService;
 
 @RestController
 public class ProductsController {
+    //private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private ProductsService service;

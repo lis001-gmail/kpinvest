@@ -8,11 +8,11 @@ import lombok.ToString;
 @Getter
 @ToString
 public enum ExceptionEnum {
-    RUNTIME_EXCEPTION(HttpStatus.BAD_REQUEST, "E0001"),
-    ACCESS_DENIED_EXCEPTION(HttpStatus.UNAUTHORIZED, "E0002"),
-    INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "E0003"),
-    SECURITY_01(HttpStatus.UNAUTHORIZED, "S0001", "NOT have permission"),
-    SOLDOUT(HttpStatus.NOT_ACCEPTABLE, "S0002", "Sold out");
+    RUNTIME_EXCEPTION(HttpStatus.BAD_REQUEST, "E40001"),
+    ACCESS_DENIED_EXCEPTION(HttpStatus.UNAUTHORIZED, "E40101"),
+    INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "E50001"),
+    SECURITY_01(HttpStatus.UNAUTHORIZED, "S40101", "NOT have permission"),
+    SOLDOUT(HttpStatus.NOT_ACCEPTABLE, "S40601", "Sold out");
 
     private final HttpStatus status;
     private final String code;
